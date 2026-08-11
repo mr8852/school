@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026학년도 중학교 학교생활기록부 기재요령</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', '"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans KR', 'Inter', sans-serif; }
+        .accordion-content { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        .accordion-content.open { max-height: 500px; opacity: 1; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-button[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Mobile Menu Button -->
+    <div class="lg:hidden fixed top-0 left-0 w-full bg-white shadow-sm z-50 px-4 py-3 flex justify-between items-center border-b border-slate-200">
+        <h1 class="text-lg font-bold text-slate-800">2026 생기부 기재요령</h1>
+        <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-slate-900 text-slate-300 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-40 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex items-center gap-3 mb-8 text-white">
+                <i class="fas fa-book-open text-brand-500 text-2xl"></i>
+                <h2 class="text-xl font-bold leading-tight">2026 학교생활기록부<br><span class="text-sm font-normal text-slate-400">중학교 안내서</span></h2>
+            </div>
+            
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">목차</p>
+            <ul class="space-y-2">
+                <li><a href="#section-intro" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors active-nav"><i class="fas fa-info-circle w-5 text-center mr-2"></i> 일러두기</a></li>
+                <li><a href="#section-rules" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors"><i class="fas fa-exclamation-triangle w-5 text-center mr-2"></i> 작성 시 유의사항</a></li>
+                <li><a href="#section-responsibility" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors"><i class="fas fa-user-edit w-5 text-center mr-2"></i> 항목별 입력 주체</a></li>
+                <li><a href="#section-terms" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors"><i class="fas fa-spell-check w-5 text-center mr-2"></i> 주요 학적 용어</a></li>
+                <li><a href="#section-transfer" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors"><i class="fas fa-exchange-alt w-5 text-center mr-2"></i> 전출입 처리 요령</a></li>
+                <li><a href="#section-inquiry" class="nav-link block py-2 px-4 rounded-lg hover:bg-slate-800 hover:text-white transition-colors"><i class="fas fa-question-circle w-5 text-center mr-2"></i> 관련 문의 방법</a></li>
+            </ul>
+            
+            <div class="mt-12 p-4 bg-slate-800 rounded-lg border border-slate-700">
+                <p class="text-xs text-slate-400 mb-2">참고 문서</p>
+                <p class="text-sm text-white flex items-center gap-2">
+                    <i class="fas fa-file-pdf text-red-400"></i>
+                    2026 학교생활기록부 기재요령(중학교).pdf
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="lg:ml-64 pt-16 lg:pt-0 p-4 md:p-8 max-w-5xl mx-auto">
+        
+        <!-- Hero Section -->
+        <header id="section-intro" class="mb-12 pt-8">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-700 text-sm font-semibold mb-4">교육부 · 17개 시도교육청</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">2026학년도 중학교 학교생활기록부 기재요령</h1>
+            <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                본 웹페이지는 학교생활기록부 작성 및 관리의 표준화를 통해 공정성과 신뢰성을 제고하기 위한 가이드입니다. 
+                <strong class="text-slate-800">2026학년도 입력 자료부터 적용</strong>되며, 현행 법령 및 교육부훈령에 근거하여 작성되었습니다.
+            </p>
+            
+            <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm">
+                <h3 class="text-amber-800 font-bold flex items-center gap-2 mb-2">
+                    <i class="fas fa-bell"></i> 일러두기 기본 원칙
+                </h3>
+                <ul class="list-disc list-inside text-amber-900 space-y-1 text-sm md:text-base">
+                    <li>시도교육청이나 학교 현장에서 임의로 변경하여 적용할 수 없습니다.</li>
+                    <li>교육정보시스템은 '나이스(NEIS)'를 통칭합니다.</li>
+                    <li>일자 표기 방식 등은 교육정보시스템(NEIS)에서 사용하는 방식을 적용합니다.</li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Section: Precautions -->
+        <section id="section-rules" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 border-b pb-3">
+                <i class="fas fa-exclamation-triangle text-red-500"></i> 학교생활기록부 작성 시 유의사항
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-700 mb-3 flex items-center gap-2"><i class="fas fa-check-circle"></i> 기본 원칙</h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start gap-2"><i class="fas fa-angle-right mt-1 text-brand-500"></i> <span>학생의 성장과 학습 과정을 <strong>상시 관찰·평가한 누가기록 중심</strong>의 종합 기록이어야 합니다.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-angle-right mt-1 text-brand-500"></i> <span>학교교육계획이나 교육과정에 따라 <strong>학교에서 실시한 각종 교육활동의 이수상황</strong>을 기재하는 것이 원칙입니다.</span></li>
+                        <li class="flex items-start gap-2"><i class="fas fa-angle-right mt-1 text-brand-500"></i> <span>기재는 교사의 고유권한으로, 교사가 직접 관찰·평가한 내용을 바탕으로 작성해야 합니다.</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 p-6 rounded-xl shadow-sm border border-red-100">
+                    <h3 class="text-lg font-bold text-red-700 mb-3 flex items-center gap-2"><i class="fas fa-ban"></i> 절대 기재 불가 사항</h3>
+                    <p class="text-sm text-red-600 mb-3">사교육 유발 요인이 큰 사항은 어떠한 항목에도 기재할 수 없습니다.</p>
+                    <ul class="space-y-2 text-red-900 text-sm font-medium">
+                        <li>• 각종 공인어학시험 (TOEIC, HSK 등) 성적 및 참여 사실</li>
+                        <li>• 교과·비교과 관련 교외대회 참여 및 수상 실적</li>
+                        <li>• 교외 기관·단체상 (표창장, 감사장 등 포함)</li>
+                        <li>• 도서출간, 지식재산권(특허 등) 출원/등록 사실</li>
+                        <li>• 어학연수, 봉사활동 등 해외 활동 실적</li>
+                        <li>• <strong>부모(친인척 포함)의 사회·경제적 지위 암시 내용</strong></li>
+                        <li>• 구체적인 특정 대학명, 상호명, 강사명 등</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-l-4 border-l-indigo-500">
+                <h3 class="font-bold text-slate-900 mb-2">AI 및 학생 본인 작성 관련 경고</h3>
+                <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                    서술형 항목에 기재될 내용을 <strong>학생에게 작성하여 제출하도록 하는 행위를 금지</strong>합니다. 또한, <strong>AI를 활용하여 생성한 자료를 그대로 입력하는 행위를 엄격히 금지</strong>합니다. AI를 윤문 등 보조 수단으로 활용할 경우, 최종 입력 전 허위/과장 기재 여부를 교사가 철저히 확인해야 합니다. 
+                    <br><span class="text-xs text-slate-500 mt-2 block">* 허위사실 기재는 '학생성적 관련 비위'로 간주되어 징계 감경에서 제외됩니다.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section: Input Responsibilities -->
+        <section id="section-responsibility" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 border-b pb-3">
+                <i class="fas fa-user-edit text-brand-500"></i> 영역별 입력 주체
+            </h2>
+            <p class="mb-4 text-slate-600">자료 입력 및 정정 업무는 당해 학년도에 업무를 담당하는 사용자가 수행함을 원칙으로 합니다.</p>
+            
+            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-left border-collapse bg-white">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700">
+                            <th class="py-3 px-4 font-semibold border-b">항목</th>
+                            <th class="py-3 px-4 font-semibold border-b">세부 영역</th>
+                            <th class="py-3 px-4 font-semibold border-b">입력 주체</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700 text-sm md:text-base divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" colspan="2">출결상황 특기사항</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" colspan="2">학교폭력 조치상황 관리</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" rowspan="3">창의적 체험활동상황</td>
+                            <td class="py-3 px-4">자율·자치활동 (3학년은 자율활동)</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4">진로활동</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4">동아리활동</td>
+                            <td class="py-3 px-4 font-bold text-emerald-600">해당 동아리 담당교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" rowspan="2">교과학습발달상황</td>
+                            <td class="py-3 px-4">과목별 세부능력 및 특기사항</td>
+                            <td class="py-3 px-4 font-bold text-purple-600">교과담당교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4">개인별 세부능력 및 특기사항</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" colspan="2">자유학기활동상황</td>
+                            <td class="py-3 px-4 font-bold text-indigo-600">해당 활동별 담당교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" colspan="2">독서활동상황</td>
+                            <td class="py-3 px-4 font-bold text-slate-800">교과담당교사, 학급담임교사</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="py-3 px-4 font-medium" colspan="2">행동특성 및 종합의견</td>
+                            <td class="py-3 px-4 font-bold text-brand-600">학급담임교사</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section: Academic Terms -->
+        <section id="section-terms" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 border-b pb-3">
+                <i class="fas fa-spell-check text-emerald-500"></i> 주요 학적 용어 (별표 7)
+            </h2>
+            
+            <div class="space-y-3" id="accordion-container">
+                <!-- Term 1 -->
+                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-slate-800 text-lg">입학 / 취학 / 재학</span>
+                        <i class="fas fa-chevron-down accordion-icon text-slate-400"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50 px-4 border-t border-slate-100">
+                        <div class="py-4 space-y-3 text-sm md:text-base text-slate-700">
+                            <p><strong>입학 (신입학):</strong> 학교에 들어감. 당해 학년 수업일수의 2/3 이상 남은 시점까지 1학년으로 처음 들어오는 경우.</p>
+                            <p><strong>취학:</strong> 처음으로 의무교육에 해당하는 학교의 적정 학년에 들어감. (외국인 학생이 처음으로 중학교에 들어오는 경우 '취학' 처리)</p>
+                            <p><strong>재학:</strong> 당해 학교의 학생 신분(학적)을 보유함.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Term 2 -->
+                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-slate-800 text-lg">재취학 / 편입학 / 전입학</span>
+                        <i class="fas fa-chevron-down accordion-icon text-slate-400"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50 px-4 border-t border-slate-100">
+                        <div class="py-4 space-y-3 text-sm md:text-base text-slate-700">
+                            <p><strong>재취학:</strong> 의무교육 대상자로서 '면제, 유예, 정원 외 학적관리' 중인 자가 다시 의무교육을 받고자 다디게 됨.</p>
+                            <p><strong>편입학:</strong> 의무교육 대상이 아닌 자가 학업 중단 이전 학년의 차상급 학년으로 다시 입학하거나, 다른 학교로 입학함.</p>
+                            <p><strong>전입학:</strong> 다른 학교 재학생이 우리 학교 재학생이 됨. (전출교와 전입교 출석일수 합이 2/3 이상 되어야 수료 가능)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Term 3 -->
+                <div class="bg-white border border-slate-200 rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center p-4 focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-slate-800 text-lg">유급 / 면제 / 유예</span>
+                        <i class="fas fa-chevron-down accordion-icon text-slate-400"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50 px-4 border-t border-slate-100">
+                        <div class="py-4 space-y-3 text-sm md:text-base text-slate-700">
+                            <p><strong>유급:</strong> 출석일수 부족(수업일수의 2/3 미만 출석)으로 해당 학년 교육과정을 미수료하여 진급하지 못함.</p>
+                            <p><strong>면제:</strong> 정당한 해외 출국(이민, 부모 해외파견 등), 사망, 유학 등으로 인해 취학 의무를 면함.</p>
+                            <p><strong>유예:</strong> 질병이나 부득이한 사유(대안교육기관 재학 등)로 교육받을 의무를 다음 학년도까지 보류함. (학칙에 따라 정원 외 학적관리 가능)</p>
+                            <div class="bg-yellow-50 p-3 rounded text-sm text-yellow-800 mt-2">
+                                * 중학교에서 유예/면제 발생 시 보호자와 교육장에게 통보해야 합니다.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Transfers -->
+        <section id="section-transfer" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 border-b pb-3">
+                <i class="fas fa-exchange-alt text-blue-500"></i> 전출입 시 처리 요령
+            </h2>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <ol class="list-decimal list-outside ml-5 space-y-4 text-slate-700">
+                    <li class="pl-2">
+                        <strong class="text-slate-900">자료 송부 원칙:</strong> 전출 시에는 NEIS에 전출일 현재까지의 각종 자료를 입력·확인 후 전입교로 <strong class="text-brand-600">전출 당일 전송</strong>하는 것을 원칙으로 합니다. (별도 공문 발송 불필요)
+                    </li>
+                    <li class="pl-2">
+                        <strong class="text-slate-900">누락 자료 처리:</strong> 부득이하게 입력하지 못한 자료가 있을 경우, 전출교에서 증빙서류를 포함한 공문을 전입교로 발송하여 전입교에서 입력합니다.
+                    </li>
+                    <li class="pl-2">
+                        <strong class="text-slate-900">학교폭력 조치사항:</strong> 학교폭력 관련 자료가 전송된 경우, 전입교에서는 '학교폭력 가해학생 조치사항 관리 대장'에 추가 기록하여 <span class="text-red-500 font-bold">비공개 문서로 관리</span>해야 합니다.
+                    </li>
+                    <li class="pl-2">
+                        <strong class="text-slate-900">전출입 일자:</strong> 연중 공백이 없도록 처리하되, 동일한 날짜에 이동 시 당일은 전입일, 하루 전을 전출일로 합니다. (단, 도서벽지 1일, 국외 3일 공백 인정)
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Section: Inquiries -->
+        <section id="section-inquiry" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3 border-b pb-3">
+                <i class="fas fa-question-circle text-amber-500"></i> 학교생활기록부 관련 문의 체계
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-6 rounded-xl border border-slate-200 gap-4 text-center">
+                <div class="flex-1 w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3 text-xl"><i class="fas fa-school"></i></div>
+                    <h3 class="font-bold text-slate-800">1단계: 단위 학교</h3>
+                    <p class="text-sm text-slate-500 mt-2">연수를 통해 기재요령 숙지<br>해결 어려울 시 교육지원청 문의</p>
+                </div>
+                
+                <i class="fas fa-chevron-right text-slate-300 hidden md:block text-2xl"></i>
+                <i class="fas fa-chevron-down text-slate-300 md:hidden text-2xl"></i>
+
+                <div class="flex-1 w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3 text-xl"><i class="fas fa-building"></i></div>
+                    <h3 class="font-bold text-slate-800">2단계: 교육지원청</h3>
+                    <p class="text-sm text-slate-500 mt-2">질의 응대<br>판단 어려울 시 시도교육청 문의</p>
+                </div>
+
+                <i class="fas fa-chevron-right text-slate-300 hidden md:block text-2xl"></i>
+                <i class="fas fa-chevron-down text-slate-300 md:hidden text-2xl"></i>
+
+                <div class="flex-1 w-full bg-white p-4 rounded-lg shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-3 text-xl"><i class="fas fa-landmark"></i></div>
+                    <h3 class="font-bold text-slate-800">3단계: 교육부</h3>
+                    <p class="text-sm text-slate-500 mt-2">시도교육청에서 취합하여<br>교육부 해당 부서로 최종 질의</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 text-sm text-slate-500 bg-slate-100 p-4 rounded-lg">
+                <i class="fas fa-info-circle mr-1"></i> 학부모 등의 부당한 기재/수정 요구는 「부정청탁 및 금품등 수수의 금지에 관한 법률」 위반 행위에 해당합니다.
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 pt-8 pb-12 text-center text-slate-500 text-sm mt-12">
+            <p>본 자료는 대한민국 교육부 및 17개 시도교육청에서 배포한 「2026학년도 학교생활기록부 기재요령(중학교)」 문서를 바탕으로 제작되었습니다.</p>
+            <p class="mt-2">Copyright &copy; 2026 Ministry of Education.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            
+            mobileBtn.addEventListener('click', () => {
+                const isClosed = sidebar.classList.contains('-translate-x-full');
+                if (isClosed) {
+                    sidebar.classList.remove('-translate-x-full');
+                } else {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth < 1024) { // lg breakpoint in tailwind
+                    if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                }
+            });
+
+            // Accordion Logic
+            const accordions = document.querySelectorAll('.accordion-button');
+            accordions.forEach(acc => {
+                acc.addEventListener('click', function() {
+                    // Toggle aria-expanded
+                    const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    this.setAttribute('aria-expanded', !expanded);
+                    
+                    // Toggle content visibility
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('open');
+                    
+                    // Optional: Close others (uncomment if you want accordion behavior instead of collapse)
+                    /*
+                    accordions.forEach(otherAcc => {
+                        if (otherAcc !== this) {
+                            otherAcc.setAttribute('aria-expanded', 'false');
+                            otherAcc.nextElementSibling.classList.remove('open');
+                        }
+                    });
+                    */
+                });
+            });
+
+            // Highlight Active Nav Link on Scroll
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-brand-600', 'text-white', 'font-bold');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('bg-brand-600', 'text-white', 'font-bold');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
